@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="apod"
+            type="com.example.mohmoh.apodgallery.model.Apod" />
+
+        <variable
+            name="palette"
+            type="com.example.mohmoh.apodgallery.model.ApodPlatte" />
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:theme="?attr/actionBarTheme"
+            android:background="?attr/colorPrimary"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@{apod.dateApod}"
+            android:layout_height="50dp"/>
+        <ScrollView
+            android:layout_marginTop="50dp"
+            android:background="@{palette.color}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".view.DetialFragment">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="fitXY"
+                    android:minHeight="250dp"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TitleDetail"
+                    android:layout_below="@+id/image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="4dp"
+                    android:text="@{apod.title}"/>
+<!--                <TextView-->
+<!--                    android:id="@+id/date"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    style="@style/TitleDetail"-->
+<!--                    android:layout_below="@+id/title"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_margin="4dp"-->
+<!--                    android:text="@{apod.dateApod}"/>-->
+                <TextView
+                    android:id="@+id/explanation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextDetails"
+                    android:layout_below="@+id/title"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="4dp"
+                    android:text="@{apod.explanation}"/>
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>
